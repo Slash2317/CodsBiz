@@ -10,7 +10,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'WebProject'
+rootProject.name = 'CodsBiz'
 
 include 'frontend'
 include 'backend'

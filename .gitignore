@@ -7,3 +7,12 @@
 /.idea/workspace.xml
 /.vscode/launch.json
 /.vscode/settings.json
+/frontend/.gradle/
+/build
+/backend/build/
+/.gradle/
+/frontend/build/
+/frontend/dist/
+/.idea/vcs.xml
+/.idea/modules/
+/.idea/compiler.xml
