@@ -1,0 +1,63 @@
+plugins {
+    id 'org.springframework.boot' version '3.0.2'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom('org.springframework.boot:spring-boot-starter-parent:3.0.2-SNAPSHOT')
+    }
+}
+
+dependencies {
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    implementation 'com.microsoft.sqlserver:mssql-jdbc:10.2.1.jre17'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.9.0'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation group: 'commons-dbutils', name: 'commons-dbutils', version: '1.8.1'
+}
+
+configurations {
+    all {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+}
+
+task copyFrontend {
+    mustRunAfter(':frontend:assemble')
+
+    String outputDir = 'src/main/resources/public'
+    doFirst {
+        String outputPath = project.rootDir.absolutePath + '/' + outputDir
+        if (new File(outputPath).isDirectory()) {
+            delete(outputPath)
+        }
+    }
+    doLast {
+        copy {
+            from(project(':frontend').projectDir.absolutePath + '/dist/spa') {
+                include 'assets/'
+                include 'icons/'
+                include 'index.html'
+                include 'favicon.ico'
+            }
+            into outputDir
+        }
+    }
+}
+
+configure(copyFrontend) {
+    group = 'build'
+    description = 'copies over frontend files'
+}
+
+processResources.dependsOn(copyFrontend)

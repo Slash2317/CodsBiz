@@ -1,0 +1,22 @@
+management:
+    endpoint:
+        shutdown:
+            enabled: true
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+server:
+    port: 8080
+    tomcat:
+        protocol_header: x-forwarded-proto
+        remote_ip_header: x-forwarded-for
+    error:
+        include-message: always
+spring:
+    web:
+        resources:
+            add-mappings: false
+            static-locations: classpath:public/
+    mvc:
+       throw-exception-if-no-handler-found: true
