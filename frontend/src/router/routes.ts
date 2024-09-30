@@ -10,6 +10,16 @@ const routes: RouteRecordRaw[] = [
                 path: 'dashboard',
                 name: 'dashboard',
                 component: () => import('pages/DashboardPage.vue')
+            },
+            {
+                path: 'about',
+                name: 'about',
+                component: () => import('pages/AboutPage.vue')
+            },
+            {
+                path: 'contact',
+                name: 'contact',
+                component: () => import('pages/ContactPage.vue')
             }
         ]
     },
