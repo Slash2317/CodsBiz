@@ -3,13 +3,13 @@ import { RouteRecordRaw } from 'vue-router'
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
-        redirect: '/dashboard',
+        redirect: '/home',
         component: () => import('layouts/MainLayout.vue'),
         children: [
             {
-                path: 'dashboard',
-                name: 'dashboard',
-                component: () => import('pages/DashboardPage.vue')
+                path: 'home',
+                name: 'home',
+                component: () => import('pages/HomePage.vue')
             },
             {
                 path: 'about',
