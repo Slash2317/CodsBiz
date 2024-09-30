@@ -1,11 +1,16 @@
 <template>
     <q-layout view="hHh LpR fFf">
-        <q-header bordered class="bg-indigo text-white">
-            <q-toolbar class="bg-indigo text-white full-width">
+        <q-header class="bg-white">
+            <div class="sl-content-container-slim">
+                <div class="row justify-center">
+                    <q-icon name="home" color="black" size="48px"/>
+                </div>
+            </div>
+            <q-toolbar class="bg-indigo text-white full-width row justify-center">
                 <q-tabs>
                     <q-route-tab
                         name="home"
-                        icon="home"
+                        label="Home"
                         to="/home">
                     </q-route-tab>
                     <q-route-tab
@@ -19,11 +24,10 @@
                         to="/contact">
                     </q-route-tab>
                 </q-tabs>
-                <q-space />
             </q-toolbar>
         </q-header>
 
-        <q-page-container style="padding-left: 120px; padding-right: 120px">
+        <q-page-container>
             <router-view/>
         </q-page-container>
     </q-layout>

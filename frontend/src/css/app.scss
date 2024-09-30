@@ -1,0 +1,19 @@
+.sl-content-container {
+    max-width: 1085px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 48px;
+}
+
+.sl-content-container-slim {
+    max-width: 1085px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+}
