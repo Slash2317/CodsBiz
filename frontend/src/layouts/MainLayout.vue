@@ -6,7 +6,7 @@
                     <q-icon name="home" color="black" size="48px"/>
                 </div>
             </div>
-            <q-toolbar class="bg-indigo text-white full-width row justify-center">
+            <q-toolbar class="bg-primary text-white full-width row justify-center">
                 <q-tabs>
                     <q-route-tab
                         name="home"
